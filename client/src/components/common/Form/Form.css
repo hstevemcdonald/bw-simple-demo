@@ -1,0 +1,21 @@
+div.Form {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.Form label {
+  color: darkolivegreen;
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Form input {
+  display: block;
+  font-size: 14px;
+}
+
+.Form select {
+  display: block;
+  font-size: 14px;
+}

@@ -1,0 +1,26 @@
+.App.container {
+  background-color: #cdcdcd;
+  padding: 0px;
+  margin-top: -20px;
+  padding-top: 0px;
+}
+
+.App.content {
+  max-width: 800px;
+  background-color: #ffffff;
+  margin: 0px auto;
+  min-height: 100vh;
+  border-left: 1px solid #888888;
+  border-right: 1px solid #888888;
+  padding: 0px 20px 0px 20px;
+}
+
+.App.contentBox {
+  width: 48%;
+  float:left;
+  margin: 50px 10px 0px 0px;
+}
+
+h4 {
+  margin: 0px;
+}
