@@ -9,14 +9,14 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const newWord = {
+const newWords = {
   words: []
 };
 
 class AddWordContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = newWord;
+    this.state = newWords;
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
@@ -31,7 +31,7 @@ class AddWordContainer extends Component {
     e.preventDefault();
     const { words } = this.state;
 
-    if (!words) {
+    if (!words.length) {
       let newState = { ...this.state };
       newState.formError = true;
       this.setState(newState);
@@ -46,7 +46,7 @@ class AddWordContainer extends Component {
     this.props.checkWords({
       words
     });
-    this.setState(newWord);
+    this.setState(newWords);
     document.getElementById('words').value = '';
   }
 

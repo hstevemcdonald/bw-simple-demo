@@ -9,8 +9,13 @@ const checkWordsSuccess = data => ({
 
 export const checkWords = words => {
   return dispatch => {
-    return axios.post(`${WORD_API_URL}/words`, words).then(response => {
-      dispatch(checkWordsSuccess(response.data));
-    });
+    return axios
+      .post(`${WORD_API_URL}/words`, words)
+      .then(response => {
+        dispatch(checkWordsSuccess(response.data));
+      })
+      .catch(error => {
+        console.log('Error submitting words:', error);
+      });
   };
 };

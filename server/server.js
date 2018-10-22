@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 app.use(cors());
 
 app.post('/words', jsonParser, function(req, res) {
-  if (req.body && req.body.words) {
+  if (req.body && req.body.words && req.body.words.length) {
     res.send(words.add(req.body));
   } else {
     res.status(400).send('Missing word(s)');

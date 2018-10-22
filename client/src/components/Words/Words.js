@@ -17,7 +17,7 @@ const Words = props => {
           return <Word key={data.word} {...data} />;
         })
       ) : (
-        <p>There are no Words!!!</p>
+        <p>There are no words!!!</p>
       )}
     </div>
   );
