@@ -1,6 +1,6 @@
 import React from 'react';
-import Todos from '../Todos/Todos';
-import AddTodo from '../../components/AddTodo/AddTodo';
+import Words from '../Words/Words';
+import AddWord from '../../components/AddWord/AddWord';
 
 import './App.css';
 
@@ -9,10 +9,10 @@ const App = props => {
     <div className="App container">
       <div className="App content">
         <div className="App contentBox">
-          <AddTodo {...props} />
+          <AddWord {...props} />
         </div>
         <div className="App contentBox">
-          <Todos onDelete={props.onDelete} />
+          <Words />
         </div>
       </div>
     </div>

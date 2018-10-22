@@ -1,43 +1,16 @@
 import axios from 'axios';
 
-import {
-  ADD_TODO,
-  DELETE_TODO,
-  FETCH_TODOS,
-  TODO_API_URL
-} from '../constants/action-types';
+import { CHECK_WORDS, WORD_API_URL } from '../constants/action-types';
 
-const addTodoSuccess = todo => ({ type: ADD_TODO, payload: todo });
-export const addTodo = todo => {
-  return dispatch => {
-    return axios.post(`${TODO_API_URL}/todo`, todo).then(response => {
-      dispatch(addTodoSuccess(response.data));
-    });
-  };
-};
-
-const deleteTodoSuccess = id => ({ type: DELETE_TODO, payload: id });
-export const deleteTodo = id => {
-  return dispatch => {
-    return axios.delete(`${TODO_API_URL}/todo/${id}`).then(response => {
-      dispatch(deleteTodoSuccess(id));
-    });
-  };
-};
-
-const getAllTodosSuccess = todos => ({
-  type: FETCH_TODOS,
-  payload: todos
+const checkWordsSuccess = data => ({
+  type: CHECK_WORDS,
+  payload: data.words
 });
-export const getAllTodos = () => {
+
+export const checkWords = words => {
   return dispatch => {
-    return axios
-      .get(`${TODO_API_URL}/todo`)
-      .then(response => {
-        dispatch(getAllTodosSuccess(response.data));
-      })
-      .catch(() => {
-        dispatch(getAllTodosSuccess([]));
-      });
+    return axios.post(`${WORD_API_URL}/words`, words).then(response => {
+      dispatch(checkWordsSuccess(response.data));
+    });
   };
 };

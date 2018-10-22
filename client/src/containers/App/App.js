@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import uuidv1 from 'uuid';
-
 import App from '../../components/App/App';
-import { addTodo, deleteTodo } from '../../actions/index';
+import { checkWords } from '../../actions/index';
 
 const mapDispatchToProps = dispatch => {
   return {
-    addTodo: todo => dispatch(addTodo(todo)),
-    deleteTodo: id => dispatch(deleteTodo(id))
+    checkWords: words => dispatch(checkWords(words))
   };
 };
 
-const newTodo = {
-  id: null,
-  title: '',
-  description: ''
+const newWord = {
+  words: []
 };
 
-class AddTodoContainer extends Component {
+class AddWordContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = newTodo;
+    this.state = newWord;
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
-    this.onDeleteHandler = this.onDeleteHandler.bind(this);
   }
 
   onChangeHandler(e, key) {
@@ -33,15 +27,11 @@ class AddTodoContainer extends Component {
     this.setState(newState);
   }
 
-  onDeleteHandler(id) {
-    this.props.deleteTodo(id);
-  }
-
   onSubmitHandler(e) {
     e.preventDefault();
-    const { title, description } = this.state;
+    const { words } = this.state;
 
-    if (!title) {
+    if (!words) {
       let newState = { ...this.state };
       newState.formError = true;
       this.setState(newState);
@@ -53,15 +43,11 @@ class AddTodoContainer extends Component {
       return;
     }
 
-    const id = uuidv1();
-    this.props.addTodo({
-      id,
-      title,
-      description
+    this.props.checkWords({
+      words
     });
-    this.setState(newTodo);
-    document.getElementById('title').value = '';
-    document.getElementById('description').value = '';
+    this.setState(newWord);
+    document.getElementById('words').value = '';
   }
 
   render(props) {
@@ -69,7 +55,6 @@ class AddTodoContainer extends Component {
       <App
         change={this.onChangeHandler}
         onSubmit={this.onSubmitHandler}
-        onDelete={this.onDeleteHandler}
         formError={this.state.formError}
         {...props}
       />
@@ -80,4 +65,4 @@ class AddTodoContainer extends Component {
 export default connect(
   null,
   mapDispatchToProps
-)(AddTodoContainer);
+)(AddWordContainer);

@@ -1,5 +1,3 @@
-export const ADD_TODO = 'ADD_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
-export const FETCH_TODOS = 'FETCH_TODOS';
+export const CHECK_WORDS = 'CHECK_WORDS';
 
-export const TODO_API_URL = 'http://localhost:4000';
+export const WORD_API_URL = 'http://localhost:4000';

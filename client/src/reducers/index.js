@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import todos from './todoReducer';
+import words from './wordReducer';
 
-export default combineReducers({ todos: todos });
+export default combineReducers({ words: words });
